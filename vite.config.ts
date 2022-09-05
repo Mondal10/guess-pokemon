@@ -12,4 +12,9 @@ export default defineConfig({
   resolve: {
     alias: [{ find: "@", replacement: resolve(__dirname, "src") }],
   },
+  css: {
+    modules: {
+      localsConvention: "camelCase", // to use camelCased css name instead of kebabCase
+    },
+  },
 });
