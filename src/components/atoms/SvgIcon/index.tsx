@@ -1,4 +1,4 @@
-import { useDynamicSvgImport } from "@/shared/hooks/useDynamicSvgImport";
+import { useDynamicSvgImport } from "./useDynamicSvgImport";
 
 interface IProps {
   iconName: string;
