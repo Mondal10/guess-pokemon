@@ -6,3 +6,9 @@ export const KEYBOARD_LETTERS = [
   ["a", "s", "d", "f", "g", "h", "j", "k", "l"],
   ["z", "x", "c", "v", "b", "n", "m"],
 ];
+
+export const POKEMON_TYPE_COLOUR = {
+  normal: "green-500",
+  legendary: "violet-500",
+  mythical: "orange-500",
+};
