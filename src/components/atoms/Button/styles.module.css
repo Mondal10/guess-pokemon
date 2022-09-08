@@ -1,10 +1,10 @@
 .button {
-    box-shadow: 4px 4px 0 black;
-    transition: box-shadow 0.2s ease-in-out 0s, transform 0.2s ease-in-out 0s;
+  box-shadow: 4px 4px 0 black;
+  transition: box-shadow 0.2s ease-in-out 0s, transform 0.2s ease-in-out 0s;
 }
 
 .button-hover:hover {
-    box-shadow: 2px 2px 0 black;
-    transform: translate(2px, 2px);
-    transition: box-shadow 0.2s ease-in-out 0s, transform 0.2s ease-in-out 0s;
+  box-shadow: 2px 2px 0 black;
+  transform: translate(2px, 2px);
+  transition: box-shadow 0.2s ease-in-out 0s, transform 0.2s ease-in-out 0s;
 }
