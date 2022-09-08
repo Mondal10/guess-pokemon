@@ -1,0 +1,11 @@
+.blur-filter {
+  filter: blur(7px);
+}
+
+.silhouette-filter {
+  filter: contrast(100%) brightness(0);
+}
+
+.pokemon-img {
+  pointer-events: none;
+}
