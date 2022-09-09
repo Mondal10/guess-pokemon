@@ -6,10 +6,7 @@ enum actionTypes {
   off = "OFF",
 }
 
-export function toggleReducer(
-  state: { on: boolean },
-  action: { type: actionTypes }
-) {
+function toggleReducer(state: { on: boolean }, action: { type: actionTypes }) {
   switch (action.type) {
     case actionTypes.toggle: {
       return { on: !state.on };

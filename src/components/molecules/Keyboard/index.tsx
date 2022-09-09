@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { KEYBOARD_LETTERS } from "@/shared/constants";
 import Button from "@/components/atoms/Button";
 import { TClickButtonElement } from "@/shared/types";
@@ -7,6 +7,15 @@ function Keyboard() {
   const keyClickHandler = (e: TClickButtonElement) => {
     console.log(e.target);
   };
+
+  useEffect(() => {
+    const keyboardKeyPressEvent = (event: any) => {
+      console.log(event.key);
+    };
+
+    window.addEventListener("keypress", keyboardKeyPressEvent);
+    return () => window.removeEventListener("keypress", keyboardKeyPressEvent);
+  }, []);
 
   return (
     <div>
