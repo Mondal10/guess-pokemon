@@ -7,5 +7,6 @@
 }
 
 .pokemon-img {
+  z-index: 1;
   pointer-events: none;
 }
