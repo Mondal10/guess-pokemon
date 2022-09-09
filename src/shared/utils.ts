@@ -1,4 +1,5 @@
 import { GENERATION_POKEMON_ID_RANGE } from "./constants";
+import { IFlavorText } from "./interfaces";
 
 /**
  * Returns a random integer between start (inclusive) and end (inclusive).
@@ -23,7 +24,7 @@ export function getGenerationRange(
 ): [number, number] | null {
   if (!selectedGenerations.length) return null;
 
-  let range: number[] = [];
+  const range: number[] = [];
 
   selectedGenerations.forEach((generation) =>
     range.push(
@@ -54,4 +55,34 @@ export function getPokemonNumber(pokemonID: number): string {
   } else {
     return `${pokemonID}`;
   }
+}
+
+/**
+ * Filter out non english text and text containing pokemon name
+ * @param flavorTexts Pokemon flavor/hint texts
+ * @param pokemonName
+ * @returns array of unique flavor/hint texts
+ */
+export function getFilteredHintText(
+  flavorTexts: IFlavorText[],
+  pokemonName: string
+): string[] {
+  // Filter out all the non english flovor text and containing pokemon name
+  const filteredArr = flavorTexts.reduce(
+    (previousflavorText: string[], currentflavorText) => {
+      const shouldNotFilter =
+        currentflavorText.language.name === "en" &&
+        !currentflavorText.flavor_text.toLowerCase().includes(pokemonName);
+      if (shouldNotFilter) {
+        previousflavorText.push(currentflavorText.flavor_text);
+      }
+      return previousflavorText;
+    },
+    []
+  );
+
+  // Get only unique texts
+  const uniqueFilteredHints = [...new Set(filteredArr)];
+
+  return uniqueFilteredHints;
 }
