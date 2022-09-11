@@ -1,12 +1,18 @@
+import { Link } from "react-router-dom";
+import { RouterElement } from "./routes";
 import "./App.css";
 
 function App() {
   return (
-    <div>
-      Hello
-      <h1 className="text-3xl font-bold underline text-blue-400">
-        Hello world! 'hello' "ok"
-      </h1>
+    <div className="p-2 sm:p4">
+      <div>
+        <nav>
+          <Link to="/">Home</Link>
+          <Link to="game">Game</Link>
+          <Link to="setting">Setting</Link>
+        </nav>
+      </div>
+      <RouterElement />
     </div>
   );
 }
