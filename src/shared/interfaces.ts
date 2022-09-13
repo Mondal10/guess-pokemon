@@ -7,7 +7,7 @@ export interface IFlavorText {
 
 export interface IPokemonResponse {
   flavor_text_entries: IFlavorText[];
-  id: boolean;
+  id: number;
   is_legendary: boolean;
   is_mythical: boolean;
   name: string;
