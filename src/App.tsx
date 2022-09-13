@@ -4,7 +4,7 @@ import "./App.css";
 
 function App() {
   return (
-    <div className="p-2 sm:p4">
+    <div className="p-2 sm:p4 flex flex-col justify-center items-center">
       <div>
         <nav>
           <Link to="/">Home</Link>
