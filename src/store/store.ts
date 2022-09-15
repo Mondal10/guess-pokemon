@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { gameSliceReducer } from "./features/game/gameSlice";
+import { pokemonSliceReducer } from "./features/pokemon/pokemonSlice";
 
 const store = configureStore({
   reducer: {
     game: gameSliceReducer,
+    pokemon: pokemonSliceReducer,
   },
 });
 

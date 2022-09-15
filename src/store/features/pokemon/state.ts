@@ -1,17 +1,13 @@
-import { IFlavorText } from "@/shared/interfaces";
+import { IPokemonResponse } from "@/shared/interfaces";
 
 type TInitialState = {
-  id: null | number;
-  name: null | string;
-  isMythical: null | boolean;
-  isLegendary: null | boolean;
-  flavorTextEntries: null | IFlavorText[];
+  loading: null | boolean;
+  error: null | string;
+  pokemonData: null | IPokemonResponse;
 };
 
 export const initialState: TInitialState = {
-  id: null,
-  name: null,
-  isMythical: null,
-  isLegendary: null,
-  flavorTextEntries: null,
+  loading: null,
+  error: null,
+  pokemonData: null,
 };

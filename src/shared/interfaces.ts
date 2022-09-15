@@ -11,4 +11,20 @@ export interface IPokemonResponse {
   is_legendary: boolean;
   is_mythical: boolean;
   name: string;
+  habitat: {
+    name: string;
+  };
+  shape: {
+    name: string;
+  };
+}
+
+export interface IPokemonData {
+  id: null | number;
+  name: null | string;
+  isMythical: null | boolean;
+  isLegendary: null | boolean;
+  flavorTextEntries: null | IFlavorText[];
+  habitat: string;
+  shape: string;
 }
