@@ -24,9 +24,9 @@ export const KEYBOARD_LETTERS = [
 ];
 
 export const POKEMON_TYPE_COLOUR = {
-  [POKEMON_TYPE.NORMAL]: "green-500",
-  [POKEMON_TYPE.LEGENDARY]: "violet-500",
-  [POKEMON_TYPE.MYTHICAL]: "orange-500",
+  [POKEMON_TYPE.NORMAL]: "bg-green-500",
+  [POKEMON_TYPE.LEGENDARY]: "bg-violet-500",
+  [POKEMON_TYPE.MYTHICAL]: "bg-orange-500",
 };
 
 export const POKEMON_NATURE_TYPE_COLORS = {

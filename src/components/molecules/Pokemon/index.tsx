@@ -22,9 +22,8 @@ function Pokemon(props: IProps) {
   const pokemonImageURL = `${POKEMON_IMG_URL}${pokemonID}.png`;
   const { imgFilter } = DIFFICULTY_CONFIG[DIFFICULTY.EASY];
   const showImage = loaded ? "block" : "hidden";
-  const pokemonTypeColour = `bg-${
-    POKEMON_TYPE_COLOUR[useAppSelector(getPokemonType)]
-  }`;
+  const pokemonType = useAppSelector(getPokemonType);
+  const pokemonTypeColour = `${POKEMON_TYPE_COLOUR[pokemonType]}`;
 
   return (
     <div className="flex flex-col justify-center items-center">
