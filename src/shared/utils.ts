@@ -45,7 +45,9 @@ export function getGenerationRange(
  * @param pokemonID
  * @returns formatted pokemon id
  */
-export function getPokemonNumber(pokemonID: number): string {
+export function getFormattedPokemonID(pokemonID: number | null): string | null {
+  if (pokemonID === null) return null;
+
   const length = pokemonID.toString().length;
 
   if (length === 1) {

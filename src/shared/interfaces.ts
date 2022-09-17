@@ -24,7 +24,6 @@ export interface IPokemonData {
   name: null | string;
   isMythical: null | boolean;
   isLegendary: null | boolean;
-  flavorTextEntries: null | IFlavorText[];
-  habitat: string;
-  shape: string;
+  habitat: null | string;
+  shape: null | string;
 }

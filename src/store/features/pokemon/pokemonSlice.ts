@@ -5,7 +5,8 @@ import { initialState } from "./state";
 
 export const fetchPokemon = createAsyncThunk(
   "pokemon/fetchPokemon",
-  async (pokemonID: number) => {
+  async (pokemonID: number | null) => {
+    if (pokemonID === null) return;
     const resp = await fetch(`${POKEMON_DATA_URL}${pokemonID}`).then((res) =>
       res.json()
     );
