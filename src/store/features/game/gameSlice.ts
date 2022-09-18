@@ -1,5 +1,5 @@
 import { MAX_ATTEMPTS } from "@/shared/constants";
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { initialState } from "./state";
 
 const gameSlice = createSlice({
@@ -11,6 +11,12 @@ const gameSlice = createSlice({
     },
     decreaseAttempt: (state) => {
       state.attempts -= 1;
+    },
+    addTypedLetter: (state, action: PayloadAction<string>) => {
+      state.playerUsedLetters.push(action.payload);
+    },
+    resetGameState: (state) => {
+      state = initialState;
     },
   },
 });

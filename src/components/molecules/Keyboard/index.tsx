@@ -1,21 +1,42 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { KEYBOARD_LETTERS } from "@/shared/constants";
 import Button from "@/components/atoms/Button";
 import { TClickButtonElement } from "@/shared/types";
+import { useAppDispatch, useAppSelector } from "@/store/hooks";
+import { gameSliceActions } from "@/store/features/game/gameSlice";
+import { getPokemonData } from "@/store/features/pokemon/pokemonSelector";
 
 function Keyboard() {
+  const dispatch = useAppDispatch();
+  const { addTypedLetter, decreaseAttempt } = gameSliceActions;
+  const pokemonName = useAppSelector(getPokemonData).name;
+
+  function handleAnswerCorrectness(typedLetter: string) {
+    if (!pokemonName?.includes(typedLetter)) {
+      dispatch(decreaseAttempt());
+    }
+  }
+
   const keyClickHandler = (e: TClickButtonElement) => {
-    console.log(e.target);
+    const clickedLetter = (e.target as HTMLButtonElement).innerHTML;
+    dispatch(addTypedLetter(clickedLetter));
+    handleAnswerCorrectness(clickedLetter);
+  };
+
+  const keyboardKeyPressEvent = (event: KeyboardEvent) => {
+    const { key } = event;
+    let pattern = /[a-zA-Z]/;
+    if (pattern.test(key)) {
+      const loweCased = key.toLowerCase();
+      dispatch(addTypedLetter(loweCased));
+      handleAnswerCorrectness(loweCased);
+    }
   };
 
   useEffect(() => {
-    const keyboardKeyPressEvent = (event: any) => {
-      console.log(event.key);
-    };
-
     window.addEventListener("keypress", keyboardKeyPressEvent);
     return () => window.removeEventListener("keypress", keyboardKeyPressEvent);
-  }, []);
+  }, [pokemonName]);
 
   return (
     <div>
