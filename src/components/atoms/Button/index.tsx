@@ -6,13 +6,17 @@ interface IProps {
   label: string;
   clickHandler: (e: TClickButtonElement) => void;
   customClass?: string;
+  disabled?: boolean;
 }
 
 function Button(props: IProps) {
-  const { label, clickHandler, customClass = "" } = props;
-  const { button, buttonHover } = styles;
+  const { label, clickHandler, customClass = "", disabled = false } = props;
+  const { button, buttonPressed, buttonDisabled } = styles;
 
-  const buttonDefaultClass = `${button} ${buttonHover} p-2 border-2 border-black rounded-md`;
+  const buttonDisableClass = disabled
+    ? `${buttonPressed} ${buttonDisabled}`
+    : "";
+  const buttonDefaultClass = `${button} ${buttonDisableClass} p-2 border-2 border-black rounded-md`;
   const buttonClass = `${buttonDefaultClass} ${customClass}`;
 
   return (

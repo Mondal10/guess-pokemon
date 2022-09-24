@@ -3,8 +3,14 @@
   transition: box-shadow 0.2s ease-in-out 0s, transform 0.2s ease-in-out 0s;
 }
 
-.button-hover:hover {
+.button-pressed,
+.button:hover {
   box-shadow: 2px 2px 0 black;
   transform: translate(2px, 2px);
   transition: box-shadow 0.2s ease-in-out 0s, transform 0.2s ease-in-out 0s;
+}
+
+.button-disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
 }
