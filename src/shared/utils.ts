@@ -88,3 +88,12 @@ export function getFilteredHintText(
 
   return uniqueFilteredHints;
 }
+
+/**
+ * Checks wheter given data(Object/Array is empty or not)
+ * @param obj Object or Array data
+ * @returns boolean value
+ */
+export function isEmpty(obj: {} | []): boolean {
+  return Object.keys(obj).length === 0;
+}

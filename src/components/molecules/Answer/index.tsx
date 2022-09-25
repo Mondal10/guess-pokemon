@@ -1,9 +1,10 @@
+import { getTypedLettersArr } from "@/store/features/game/gameSelector";
 import { getPokemonData } from "@/store/features/pokemon/pokemonSelector";
 import { useAppSelector } from "@/store/hooks";
 
 function Answer() {
   const pokemonData = useAppSelector(getPokemonData);
-  const typedLetters = useAppSelector((state) => state.game.playerUsedLetters);
+  const typedLetters = useAppSelector(getTypedLettersArr);
 
   const letterArr = [...(pokemonData.name ?? "")].map((data) => {
     if (typedLetters.includes(data)) return data;

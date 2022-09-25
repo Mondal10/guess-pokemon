@@ -5,21 +5,31 @@ import { TClickButtonElement } from "@/shared/types";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { gameSliceActions } from "@/store/features/game/gameSlice";
 import { getPokemonData } from "@/store/features/pokemon/pokemonSelector";
+import { getPlayerUsedLetterObj } from "@/store/features/game/gameSelector";
 
 function Keyboard() {
+  const playerUserLetterObj = useAppSelector(getPlayerUsedLetterObj);
   const dispatch = useAppDispatch();
   const { addTypedLetter, decreaseAttempt } = gameSliceActions;
   const pokemonName = useAppSelector(getPokemonData).name;
 
   function handleAnswerCorrectness(typedLetter: string) {
-    if (!pokemonName?.includes(typedLetter)) {
+    const isAlreadyTypedLetter =
+      Object.keys(playerUserLetterObj).includes(typedLetter);
+
+    if (!pokemonName || isAlreadyTypedLetter) return;
+    const isCorrectLetter = pokemonName?.includes(typedLetter);
+
+    if (!isCorrectLetter) {
       dispatch(decreaseAttempt());
     }
+    dispatch(
+      addTypedLetter({ letter: typedLetter, isCorrect: isCorrectLetter })
+    );
   }
 
   const keyClickHandler = (e: TClickButtonElement) => {
     const clickedLetter = (e.target as HTMLButtonElement).innerHTML;
-    dispatch(addTypedLetter(clickedLetter));
     handleAnswerCorrectness(clickedLetter);
   };
 
@@ -28,15 +38,24 @@ function Keyboard() {
     let pattern = /[a-zA-Z]/;
     if (pattern.test(key)) {
       const loweCased = key.toLowerCase();
-      dispatch(addTypedLetter(loweCased));
       handleAnswerCorrectness(loweCased);
     }
+  };
+
+  const buttonColour = (letter: string) => {
+    let colour = "";
+    if (playerUserLetterObj[letter]) {
+      colour = playerUserLetterObj[letter].isCorrect
+        ? "bg-green-300"
+        : "bg-red-300";
+    }
+    return colour;
   };
 
   useEffect(() => {
     window.addEventListener("keypress", keyboardKeyPressEvent);
     return () => window.removeEventListener("keypress", keyboardKeyPressEvent);
-  }, [pokemonName]);
+  }, [pokemonName, playerUserLetterObj]);
 
   return (
     <div>
@@ -49,8 +68,11 @@ function Keyboard() {
             <Button
               key={letter}
               label={letter}
+              disabled={!!playerUserLetterObj[letter]}
               clickHandler={keyClickHandler}
-              customClass="p-1 w-7 sm:w-14 sm:h-14 m-1 sm:m-2 font-medium capitalize"
+              customClass={`p-1 w-7 sm:w-14 sm:h-14 m-1 sm:m-2 font-medium capitalize ${buttonColour(
+                letter
+              )}`}
             />
           ))}
         </div>

@@ -27,3 +27,12 @@ export interface IPokemonData {
   habitat: null | string;
   shape: null | string;
 }
+
+export interface ILetterCorrectness {
+  letter: string;
+  isCorrect: boolean;
+}
+
+export interface IPlayerUsedLetters {
+  [letter: string]: ILetterCorrectness;
+}

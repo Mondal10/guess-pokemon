@@ -1,18 +1,14 @@
-import { MAX_ATTEMPTS } from "@/shared/constants";
 import SvgIcon from "@/components/atoms/SvgIcon";
-import { useAppDispatch, useAppSelector } from "@/store/hooks";
-import { gameSliceActions } from "@/store/features/game/gameSlice";
+import { useAppSelector } from "@/store/hooks";
 
 function Lives() {
   const attempts = useAppSelector((state) => state.game.attempts);
-  const dispatch = useAppDispatch();
 
   // To convert count to array of count length so that its iterable
   const attemptCountToArr = Array.from(Array(attempts).keys());
 
   return (
-    <div>
-      <p>{`${attempts}/${MAX_ATTEMPTS}`}</p>
+    <div className="flex justify-center items-center h-auto py-2">
       {attemptCountToArr.map((live) => (
         <SvgIcon
           key={live}
@@ -25,21 +21,9 @@ function Lives() {
           }}
         />
       ))}
-      <div>
-        <button
-          className="border-2 border-black"
-          onClick={() => dispatch(gameSliceActions.decreaseAttempt())}
-          disabled={attempts <= 0}
-        >
-          Decrease Attempt
-        </button>
-        <button
-          className="border-2 border-black"
-          onClick={() => dispatch(gameSliceActions.resetAttempt())}
-        >
-          Reset Attempt
-        </button>
-      </div>
+      {!attemptCountToArr.length && (
+        <span className="font-bold">No Attempts Left</span>
+      )}
     </div>
   );
 }
