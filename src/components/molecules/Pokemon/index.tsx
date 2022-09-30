@@ -19,7 +19,7 @@ function Pokemon(props: IProps) {
 
   const [loaded, setLoaded] = useState(false);
 
-  const pokemonImageURL = `${POKEMON_IMG_URL}${pokemonID}.png`;
+  const pokemonImageURL = pokemonID && `${POKEMON_IMG_URL}${pokemonID}.png`;
   const { imgFilter } = DIFFICULTY_CONFIG[DIFFICULTY.EASY];
   const showImage = loaded ? "block" : "hidden";
   const pokemonType = useAppSelector(getPokemonType);
@@ -34,7 +34,7 @@ function Pokemon(props: IProps) {
         ></div>
         <img
           className={`${imgFilter} ${showImage} pokemon-img`}
-          src={pokemonImageURL}
+          src={pokemonImageURL ?? ""}
           onLoad={() => setLoaded(true)}
         />
       </div>
