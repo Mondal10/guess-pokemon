@@ -8,10 +8,18 @@ interface IProps {
   headerText?: string;
   modalBody?: JSX.Element | string;
   modalFooter?: JSX.Element | string;
+  hideModalCross?: boolean;
 }
 
 function Modal(props: IProps) {
-  const { onClose, showModal, headerText = "", modalFooter, modalBody } = props;
+  const {
+    onClose,
+    showModal,
+    headerText = "",
+    modalFooter,
+    modalBody,
+    hideModalCross = false,
+  } = props;
 
   const escHandler = (event: KeyboardEvent) => {
     const { key } = event;
@@ -42,9 +50,11 @@ function Modal(props: IProps) {
       <div className="modal-content">
         <div className="modal-header flex justify-between">
           <div className="header-text">{headerText}</div>
-          <div className="font-bold cursor-pointer" onClick={onClose}>
-            X
-          </div>
+          {!hideModalCross && (
+            <div className="font-bold cursor-pointer" onClick={onClose}>
+              X
+            </div>
+          )}
         </div>
         {modalBody && <div className="modal-body">{modalBody}</div>}
         {modalFooter && <div className="modal-footer">{modalFooter}</div>}

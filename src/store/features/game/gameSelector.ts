@@ -10,3 +10,7 @@ export const getPlayerUsedLetterObj = (
 ): IPlayerUsedLetters => {
   return store.game.playerUsedLetters;
 };
+
+export const getRemainingAttempts = (store: RootState): number => {
+  return store.game.attempts;
+};

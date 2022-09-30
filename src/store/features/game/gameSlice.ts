@@ -11,14 +11,14 @@ const gameSlice = createSlice({
       state.attempts = MAX_ATTEMPTS;
     },
     decreaseAttempt: (state) => {
-      state.attempts -= 1;
+      if (state.attempts > 0) {
+        state.attempts -= 1;
+      }
     },
     addTypedLetter: (state, action: PayloadAction<ILetterCorrectness>) => {
       state.playerUsedLetters[action.payload.letter] = action.payload;
     },
-    resetGameState: (state) => {
-      state = initialState;
-    },
+    resetGameState: () => initialState,
   },
 });
 
