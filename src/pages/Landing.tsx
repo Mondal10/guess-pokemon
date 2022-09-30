@@ -40,7 +40,7 @@ function Landing() {
         </ul>
       </div>
       <Button
-        customClass="py-2 px-4"
+        customClass="mt-10 py-2 px-4"
         label="Start Game"
         clickHandler={() => navigate(ROUTE_PATH.GAME)}
       />
