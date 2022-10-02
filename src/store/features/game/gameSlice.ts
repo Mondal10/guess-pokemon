@@ -1,4 +1,5 @@
 import { MAX_ATTEMPTS } from "@/shared/constants";
+import { DIFFICULTY } from "@/shared/enums";
 import { ILetterCorrectness } from "@/shared/interfaces";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { initialState } from "./state";
@@ -17,6 +18,9 @@ const gameSlice = createSlice({
     },
     addTypedLetter: (state, action: PayloadAction<ILetterCorrectness>) => {
       state.playerUsedLetters[action.payload.letter] = action.payload;
+    },
+    setGameDifficulty: (state, action: PayloadAction<DIFFICULTY>) => {
+      state.gameDifficulty = action.payload;
     },
     resetGameState: () => initialState,
   },

@@ -14,3 +14,7 @@ export const getPlayerUsedLetterObj = (
 export const getRemainingAttempts = (store: RootState): number => {
   return store.game.attempts;
 };
+
+export const getGameDifficulty = (store: RootState) => {
+  return store.game.gameDifficulty;
+};

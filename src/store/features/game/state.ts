@@ -1,4 +1,5 @@
 import { MAX_ATTEMPTS } from "@/shared/constants";
+import { DIFFICULTY } from "@/shared/enums";
 import { IPlayerUsedLetters } from "@/shared/interfaces";
 
 type TInitialState = {
@@ -6,6 +7,7 @@ type TInitialState = {
   score: number;
   playerUsedLetters: IPlayerUsedLetters;
   gamePokemonName: null | string;
+  gameDifficulty: DIFFICULTY;
 };
 
 export const initialState: TInitialState = {
@@ -13,4 +15,5 @@ export const initialState: TInitialState = {
   score: 0,
   playerUsedLetters: {},
   gamePokemonName: null,
+  gameDifficulty: DIFFICULTY.EASY,
 };

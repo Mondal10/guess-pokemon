@@ -4,7 +4,7 @@ import {
   POKEMON_IMG_URL,
   POKEMON_TYPE_COLOUR,
 } from "@/shared/constants";
-import { DIFFICULTY } from "@/shared/enums";
+import { getGameDifficulty } from "@/store/features/game/gameSelector";
 import { getPokemonType } from "@/store/features/pokemon/pokemonSelector";
 import { useAppSelector } from "@/store/hooks";
 import { useState } from "react";
@@ -18,9 +18,10 @@ function Pokemon(props: IProps) {
   const { pokemonID } = props;
 
   const [loaded, setLoaded] = useState(false);
+  const currentGameDifficulty = useAppSelector(getGameDifficulty);
 
   const pokemonImageURL = pokemonID && `${POKEMON_IMG_URL}${pokemonID}.png`;
-  const { imgFilter } = DIFFICULTY_CONFIG[DIFFICULTY.EASY];
+  const { imgFilter } = DIFFICULTY_CONFIG[currentGameDifficulty];
   const showImage = loaded ? "block" : "hidden";
   const pokemonType = useAppSelector(getPokemonType);
   const pokemonTypeColour = `${POKEMON_TYPE_COLOUR[pokemonType]}`;
