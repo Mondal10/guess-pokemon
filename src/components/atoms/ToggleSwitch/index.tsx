@@ -3,18 +3,16 @@ import "./toggleswitch.styles.css";
 interface IProps {
   on: boolean;
   toggle: () => void;
-  classes?: string;
+  customClass?: string;
 }
 
-const nope = () => {};
-
 function ToggleSwitch(props: IProps) {
-  const { on, toggle, classes } = props;
+  const { on, toggle, customClass } = props;
 
   const btnClassName = [
     "toggle-btn",
     on ? "toggle-btn-on" : "toggle-btn-off",
-    classes,
+    customClass,
   ]
     .filter(Boolean)
     .join(" ");
@@ -25,8 +23,7 @@ function ToggleSwitch(props: IProps) {
         className="toggle-input"
         type="checkbox"
         checked={on}
-        onClick={toggle}
-        onChange={nope}
+        onChange={toggle}
       />
       <span className={btnClassName} />
     </label>
