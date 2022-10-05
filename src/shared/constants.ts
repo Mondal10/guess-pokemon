@@ -7,14 +7,14 @@ export const POKEMON_DATA_URL = "https://pokeapi.co/api/v2/pokemon-species/";
 export const MAX_ATTEMPTS = 6;
 export const GENERATIONS = 8;
 export const GENERATION_POKEMON_ID_RANGE = {
-  1: [1, 151],
-  2: [152, 251],
-  3: [252, 386],
-  4: [387, 493],
-  5: [494, 649],
-  6: [650, 721],
-  7: [722, 809],
-  8: [810, 905],
+  gen1: [1, 151],
+  gen2: [152, 251],
+  gen3: [252, 386],
+  gen4: [387, 493],
+  gen5: [494, 649],
+  gen6: [650, 721],
+  gen7: [722, 809],
+  gen8: [810, 905],
 };
 
 export const KEYBOARD_LETTERS = [

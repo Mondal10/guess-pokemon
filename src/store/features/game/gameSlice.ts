@@ -22,6 +22,9 @@ const gameSlice = createSlice({
     setGameDifficulty: (state, action: PayloadAction<DIFFICULTY>) => {
       state.gameDifficulty = action.payload;
     },
+    setSelectedGenerations: (state, action: PayloadAction<string[]>) => {
+      state.selectedGenerations = action.payload;
+    },
     resetGameState: () => initialState,
   },
 });

@@ -11,11 +11,13 @@ import {
   getGenerationRange,
   getRandomNumber,
 } from "@/shared/utils";
+import { getSelectedGenerations } from "@/store/features/game/gameSelector";
 
 function Game() {
   const pokemonData = useAppSelector(getPokemonData);
+  const selectedGenerations = useAppSelector(getSelectedGenerations);
   const formattedPokemonID = getFormattedPokemonID(pokemonData.id);
-  const getSelectedGenerationRange = getGenerationRange([1]);
+  const getSelectedGenerationRange = getGenerationRange(selectedGenerations);
   const getRandomPokemonID =
     getSelectedGenerationRange && getRandomNumber(getSelectedGenerationRange);
 

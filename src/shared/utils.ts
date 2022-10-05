@@ -20,7 +20,7 @@ export function getRandomNumber(range: [number, number]): number {
  * @returns
  */
 export function getGenerationRange(
-  selectedGenerations: number[]
+  selectedGenerations: string[]
 ): [number, number] | null {
   if (!selectedGenerations.length) return null;
 

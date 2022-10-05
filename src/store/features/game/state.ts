@@ -6,14 +6,14 @@ type TInitialState = {
   attempts: number;
   score: number;
   playerUsedLetters: IPlayerUsedLetters;
-  gamePokemonName: null | string;
   gameDifficulty: DIFFICULTY;
+  selectedGenerations: string[];
 };
 
 export const initialState: TInitialState = {
   attempts: MAX_ATTEMPTS,
   score: 0,
   playerUsedLetters: {},
-  gamePokemonName: null,
   gameDifficulty: DIFFICULTY.EASY,
+  selectedGenerations: ["gen1"], // default selection to gen1
 };

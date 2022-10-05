@@ -13,8 +13,8 @@ export const getPokemonData = (store: RootState): IPokemonData => {
     name: store.pokemon.pokemonData?.name ?? null,
     isMythical: store.pokemon.pokemonData?.is_mythical ?? null,
     isLegendary: store.pokemon.pokemonData?.is_legendary ?? null,
-    habitat: store.pokemon.pokemonData?.habitat.name ?? null,
-    shape: store.pokemon.pokemonData?.shape.name ?? null,
+    habitat: store.pokemon.pokemonData?.habitat?.name ?? "N/A",
+    shape: store.pokemon.pokemonData?.shape?.name ?? "N/A",
   };
 };
 

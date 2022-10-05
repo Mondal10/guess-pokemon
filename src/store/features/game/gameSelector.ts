@@ -18,3 +18,7 @@ export const getRemainingAttempts = (store: RootState): number => {
 export const getGameDifficulty = (store: RootState) => {
   return store.game.gameDifficulty;
 };
+
+export const getSelectedGenerations = (store: RootState) => {
+  return store.game.selectedGenerations;
+};

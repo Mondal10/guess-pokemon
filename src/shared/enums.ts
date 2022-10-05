@@ -9,3 +9,8 @@ export enum POKEMON_TYPE {
   LEGENDARY = "legendary",
   MYTHICAL = "mythical",
 }
+
+export enum RADIO_TYPE {
+  SINGLESELECT = "radio",
+  MULTISELECT = "checkbox",
+}
