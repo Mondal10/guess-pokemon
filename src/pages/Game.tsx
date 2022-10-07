@@ -5,6 +5,7 @@ import Pokemon from "@/components/molecules/Pokemon";
 import { getPokemonData } from "@/store/features/pokemon/pokemonSelector";
 import { useAppSelector } from "@/store/hooks";
 import { getFormattedPokemonID } from "@/shared/utils";
+import GameOverModal from "@/components/modals/GameOver";
 
 function Game() {
   const pokemonData = useAppSelector(getPokemonData);
@@ -18,6 +19,7 @@ function Game() {
       <Answer />
       <br />
       <Keyboard />
+      <GameOverModal />
     </div>
   );
 }

@@ -97,3 +97,11 @@ export function getFilteredHintText(
 export function isEmpty(obj: {} | []): boolean {
   return Object.keys(obj).length === 0;
 }
+
+/**
+ * Open url in a new tab
+ * @param url to be opened
+ */
+export function openInNewTab(url: string) {
+  window.open(url, "_blank");
+}
