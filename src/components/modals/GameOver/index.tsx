@@ -14,11 +14,12 @@ function GameOverModal() {
   const attemptsLeft = useAppSelector(getRemainingAttempts);
   const pokemonData = useAppSelector(getPokemonData);
   const dispatch = useAppDispatch();
-  const { resetGameState } = gameSliceActions;
+  const { resetAttempt, resetTypedLetter } = gameSliceActions;
 
   const onCloseHandler = () => {
     setShowModal(false);
-    dispatch(resetGameState());
+    dispatch(resetAttempt());
+    dispatch(resetTypedLetter());
   };
 
   const tryAgainHandler = () => {

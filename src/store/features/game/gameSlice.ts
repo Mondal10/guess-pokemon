@@ -19,6 +19,9 @@ const gameSlice = createSlice({
     addTypedLetter: (state, action: PayloadAction<ILetterCorrectness>) => {
       state.playerUsedLetters[action.payload.letter] = action.payload;
     },
+    resetTypedLetter: (state) => {
+      state.playerUsedLetters = {};
+    },
     setGameDifficulty: (state, action: PayloadAction<DIFFICULTY>) => {
       state.gameDifficulty = action.payload;
     },
