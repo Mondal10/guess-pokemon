@@ -1,10 +1,26 @@
 import pokemonHeaderImg from "@/assets/images/pokemonHeader.png";
 import Button from "@/components/atoms/Button";
 import { ROUTE_PATH } from "@/routes/enums";
+import { getGenerationRange, getRandomNumber } from "@/shared/utils";
+import { getSelectedGenerations } from "@/store/features/game/gameSelector";
+import { fetchPokemon } from "@/store/features/pokemon/pokemonSlice";
+import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { useNavigate } from "react-router-dom";
 
 function Landing() {
   const navigate = useNavigate();
+
+  const selectedGenerations = useAppSelector(getSelectedGenerations);
+  const getSelectedGenerationRange = getGenerationRange(selectedGenerations);
+  const getRandomPokemonID =
+    getSelectedGenerationRange && getRandomNumber(getSelectedGenerationRange);
+  const dispatch = useAppDispatch();
+
+  const startGameHandler = () => {
+    navigate(ROUTE_PATH.GAME);
+
+    dispatch(fetchPokemon(getRandomPokemonID));
+  };
 
   return (
     <div className="flex flex-col justify-center items-center">
@@ -42,7 +58,7 @@ function Landing() {
       <Button
         customClass="mt-10 py-2 px-4"
         label="Start Game"
-        clickHandler={() => navigate(ROUTE_PATH.GAME)}
+        clickHandler={startGameHandler}
       />
     </div>
   );
