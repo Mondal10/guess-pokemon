@@ -3,7 +3,11 @@ import Button from "@/components/atoms/Button";
 import { ROUTE_PATH } from "@/routes/enums";
 import { getGenerationRange, getRandomNumber } from "@/shared/utils";
 import { getSelectedGenerations } from "@/store/features/game/gameSelector";
-import { fetchPokemon } from "@/store/features/pokemon/pokemonSlice";
+import { gameSliceActions } from "@/store/features/game/gameSlice";
+import {
+  fetchPokemon,
+  pokemonSliceActions,
+} from "@/store/features/pokemon/pokemonSlice";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { useNavigate } from "react-router-dom";
 
@@ -14,11 +18,16 @@ function Landing() {
   const getSelectedGenerationRange = getGenerationRange(selectedGenerations);
   const getRandomPokemonID =
     getSelectedGenerationRange && getRandomNumber(getSelectedGenerationRange);
+  const { resetAttempt, resetTypedLetter } = gameSliceActions;
+  const { resetPokemonState } = pokemonSliceActions;
   const dispatch = useAppDispatch();
 
   const startGameHandler = () => {
     navigate(ROUTE_PATH.GAME);
 
+    dispatch(resetAttempt());
+    dispatch(resetTypedLetter());
+    dispatch(resetPokemonState());
     dispatch(fetchPokemon(getRandomPokemonID));
   };
 

@@ -22,14 +22,14 @@ function GameOverModal() {
     dispatch(resetTypedLetter());
   };
 
-  const tryAgainHandler = () => {
+  const getTrainedHandler = () => {
     const url = `${POKEDEX_BASE_URL}pokemoninfo/${pokemonData.id}`;
     openInNewTab(url);
   };
 
   const modalBody = (
     <div className="flex flex-col items-center">
-      <img src={sadPikachu} className="w-1/2 sm:w-1/3" alt="Sad Pikachu" />
+      <img src={sadPikachu} className="w-1/2 sm:w-1/4" alt="Sad Pikachu" />
       <b>Game Over!</b>
       <p>Oops! you are out of Pokéballs</p>
     </div>
@@ -37,7 +37,7 @@ function GameOverModal() {
   const modalFooter = (
     <div className="flex justify-around">
       <Button label="Try Again" clickHandler={onCloseHandler} />
-      <Button label="Get Trained" clickHandler={tryAgainHandler} />
+      <Button label="Get Trained" clickHandler={getTrainedHandler} />
     </div>
   );
 

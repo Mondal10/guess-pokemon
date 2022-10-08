@@ -17,7 +17,9 @@ export const fetchPokemon = createAsyncThunk(
 const pokemonSlice = createSlice({
   name: "pokemon",
   initialState,
-  reducers: {},
+  reducers: {
+    resetPokemonState: () => initialState,
+  },
   extraReducers: (builder) => {
     builder.addCase(fetchPokemon.pending, (state) => {
       state.loading = true;
