@@ -3,7 +3,7 @@ import GenerationSelect from "@/components/molecules/GenerationSelect";
 
 function Setting() {
   return (
-    <div>
+    <div className="mt-5">
       <GameDifficulty />
       <GenerationSelect />
     </div>

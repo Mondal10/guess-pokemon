@@ -1,17 +1,15 @@
-import { Link } from "react-router-dom";
 import { RouterElement } from "./routes";
 import "./App.css";
+import HomeCTA from "./components/molecules/HomeCTA";
+import SettingCTA from "./components/molecules/SettingCTA";
 
 function App() {
   return (
     <div className="p-2 sm:p4 flex flex-col justify-center items-center">
-      <div>
-        <nav>
-          <Link to="/">Home</Link>
-          <Link to="game">Game</Link>
-          <Link to="setting">Setting</Link>
-        </nav>
-      </div>
+      <section className="flex w-full justify-between">
+        <HomeCTA />
+        <SettingCTA />
+      </section>
       <RouterElement />
     </div>
   );
