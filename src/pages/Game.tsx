@@ -6,6 +6,7 @@ import { getPokemonData } from "@/store/features/pokemon/pokemonSelector";
 import { useAppSelector } from "@/store/hooks";
 import { getFormattedPokemonID } from "@/shared/utils";
 import GameOverModal from "@/components/modals/GameOver";
+import RoundWonModal from "@/components/modals/RoundWon";
 
 function Game() {
   const pokemonData = useAppSelector(getPokemonData);
@@ -20,6 +21,7 @@ function Game() {
       <br />
       <Keyboard />
       <GameOverModal />
+      <RoundWonModal />
     </div>
   );
 }
