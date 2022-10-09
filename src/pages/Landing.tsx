@@ -50,10 +50,13 @@ function Landing() {
           difficulty.
         </p>
         <h2 className="text-lg font-medium mt-10">Pokemon Type Indicator:</h2>
-        <p>Pokemon background will blink with this colour</p>
+        <p>
+          Pokemon background will blink with this colour, this can be disabled
+          from settings.
+        </p>
         <div className="flex justify-evenly capitalize">
           {Object.keys(POKEMON_TYPE_COLOUR).map((pokemonType) => (
-            <div className="flex items-center">
+            <div key={pokemonType} className="flex items-center">
               <span
                 className={`${
                   POKEMON_TYPE_COLOUR[

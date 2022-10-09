@@ -28,6 +28,9 @@ const gameSlice = createSlice({
     setSelectedGenerations: (state, action: PayloadAction<string[]>) => {
       state.selectedGenerations = action.payload;
     },
+    setPokemonIndicator: (state, action: PayloadAction<boolean>) => {
+      state.showPokemonType = action.payload;
+    },
     resetGameState: () => initialState,
   },
 });

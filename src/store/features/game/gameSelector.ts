@@ -22,3 +22,7 @@ export const getGameDifficulty = (store: RootState) => {
 export const getSelectedGenerations = (store: RootState) => {
   return store.game.selectedGenerations;
 };
+
+export const getPokemonTypeIndicator = (store: RootState) => {
+  return store.game.showPokemonType;
+};
