@@ -35,7 +35,7 @@ function Keyboard() {
 
   const keyboardKeyPressEvent = (event: KeyboardEvent) => {
     const { key } = event;
-    let pattern = /[a-zA-Z]/;
+    let pattern = /[a-zA-Z\-]/;
     if (pattern.test(key)) {
       const loweCased = key.toLowerCase();
       handleAnswerCorrectness(loweCased);
