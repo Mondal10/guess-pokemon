@@ -6,13 +6,20 @@ interface IProps {
   onChangeHandler: (e: TChangeInputElement) => void;
   radioType: RADIO_TYPE;
   selectedValues: string[];
+  wrapperStyle?: string;
 }
 
 function RadioButton(props: IProps) {
-  const { options, onChangeHandler, radioType, selectedValues } = props;
+  const {
+    options,
+    onChangeHandler,
+    radioType,
+    selectedValues,
+    wrapperStyle = "",
+  } = props;
 
   return (
-    <div className="flex items-center flex-wrap">
+    <div className={wrapperStyle}>
       {options.map((option) => (
         <div className="p-2" key={option.id}>
           <label className="cursor-pointer">

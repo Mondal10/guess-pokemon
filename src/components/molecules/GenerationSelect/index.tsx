@@ -52,6 +52,7 @@ function GenerationSelect() {
         radioType={radioType}
         selectedValues={selectedGenerations}
         onChangeHandler={onChangeGeneration}
+        wrapperStyle="grid grid-cols-4 grid-rows-2"
       />
     </div>
   );
