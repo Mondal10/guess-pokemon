@@ -4,6 +4,7 @@ export const POKEMON_IMG_URL =
   "https://assets.pokemon.com/assets/cms2/img/pokedex/full/";
 export const POKEMON_DATA_URL = "https://pokeapi.co/api/v2/pokemon-species/";
 export const POKEDEX_BASE_URL = "https://mondal10.github.io/Pokedex/#/";
+export const GITHUB_SOURCE_CODE = "https://github.com/Mondal10/guess-pokemon";
 
 export const MAX_ATTEMPTS = 6;
 export const GENERATIONS = 8;
