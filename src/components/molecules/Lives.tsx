@@ -16,8 +16,8 @@ function Lives() {
           wrapperStyle=""
           svgProp={{
             stroke: "black",
-            height: "50px",
-            width: "50px",
+            height: "45px",
+            width: "45px",
           }}
         />
       ))}
