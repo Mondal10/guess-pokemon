@@ -26,3 +26,7 @@ export const getSelectedGenerations = (store: RootState) => {
 export const getPokemonTypeIndicator = (store: RootState) => {
   return store.game.showPokemonType;
 };
+
+export const getHintVisibility = (store: RootState) => {
+  return store.game.showHints;
+};

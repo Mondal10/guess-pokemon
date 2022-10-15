@@ -8,6 +8,7 @@ type TInitialState = {
   playerUsedLetters: IPlayerUsedLetters;
   gameDifficulty: DIFFICULTY;
   showPokemonType: boolean;
+  showHints: boolean;
   selectedGenerations: string[];
 };
 
@@ -17,5 +18,6 @@ export const initialState: TInitialState = {
   playerUsedLetters: {},
   gameDifficulty: DIFFICULTY.EASY,
   showPokemonType: true,
+  showHints: false,
   selectedGenerations: ["gen1"], // default selection to gen1
 };

@@ -31,6 +31,9 @@ const gameSlice = createSlice({
     setPokemonIndicator: (state, action: PayloadAction<boolean>) => {
       state.showPokemonType = action.payload;
     },
+    setHintVisibility: (state, action: PayloadAction<boolean>) => {
+      state.showHints = action.payload;
+    },
     resetGameState: () => initialState,
   },
 });
